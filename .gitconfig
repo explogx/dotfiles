@@ -13,5 +13,7 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[alias]
+  tree = log --graph --oneline --all
 [github]
 	user = explogx
