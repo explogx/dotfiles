@@ -51,8 +51,8 @@ set smarttab                    " Smart tab insertion on new lines
 set backspace=indent,eol,start  " Make backspace behaves as in most other programs
 set timeoutlen=200              " Short timeout for commands
 
-" Map CTRL-L to `:let @/ = ""`
-nnoremap <silent><C-L> :let @/ = ""<CR>
+" Map CTRL-N to `:let @/ = ""`
+nnoremap <silent><C-N> :let @/ = ""<CR>
 
 " Remap j and k to their gj and gk counterparts and vice-versa
 nnoremap j gj
@@ -133,7 +133,7 @@ endif
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 if exists("&completeopt")
@@ -151,4 +151,4 @@ let g:terraform_registry_module_completion = 0
 highlight SignColumn guibg=NONE ctermbg=NONE
 
 " Fold unmatched portions of text
-nnoremap <silent><C-N> :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0<CR>
+cnoreabbrev <silent>foldsearch setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0<CR>
