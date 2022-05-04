@@ -74,18 +74,19 @@ vnoremap <Right> <Nop>
 vnoremap <BS> <Nop>
 
 " Set filetypes for specific matched buffer names
-autocmd BufNewFile,BufReadPost Makefile,*.makefile,*.mk set filetype=dockerfile
+autocmd BufNewFile,BufReadPost Makefile,*.makefile,*.mk set filetype=make
+autocmd BufNewFile,BufReadPost *.h,*.hpp,*.c,*.cc,*.cpp set filetype=cpp
 autocmd BufNewFile,BufReadPost Dockerfile,Dockerfile.* set filetype=dockerfile
 autocmd BufNewFile,BufReadPost *.tf,*.tfvars set filetype=terraform
-autocmd BufNewFile,BufReadPost *.h,*.hpp,*.c,*.cc,*.cpp set filetype=cpp
 
 " Use tab indentation for Makefile
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
 " Set formatter for various filetypes
 autocmd FileType markdown set equalprg=prettier\ --parser\ markdown
-autocmd FileType python set equalprg=black\ --quiet\ -
 autocmd FileType cpp set equalprg=clang-format\ -style=Microsoft
+autocmd FileType python set equalprg=black\ --quiet\ -
+autocmd FileType terraform set equalprg=terraform\ fmt\ -
 
 " Enable markdown folding
 let g:markdown_folding = 1
